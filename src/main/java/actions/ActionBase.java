@@ -66,7 +66,7 @@ public abstract class ActionBase {
             //commandに該当するメソッドを実行する
             commandMethod = this.getClass().getDeclaredMethod(command, new Class[0]);
             commandMethod.invoke(this, new Object[0]);
-        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
+        } catch  (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException | NullPointerException e) {
 
             e.printStackTrace();
@@ -98,9 +98,9 @@ public abstract class ActionBase {
      * @throws ServletException
      * @throws IOException
      */
-    protected void redirect(ForwardConst action,ForwardConst command) throws ServletException, IOException {
+    protected void redirect(ForwardConst action, ForwardConst command) throws ServletException, IOException {
         String redirectUrl = request.getContextPath() + "/?action=" + action.getValue();
-        if(command != null) {
+        if (command != null) {
             redirectUrl = redirectUrl + "&command=" + command.getValue();
         }
 

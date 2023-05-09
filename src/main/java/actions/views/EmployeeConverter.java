@@ -86,14 +86,14 @@ public class EmployeeConverter {
      */
 
     public static void copyViewToModel(Employee e, EmployeeView ev) {
-        e.setId(null);
-        e.setCode(null);
-        e.setName(null);
-        e.setPassword(null);
-        e.setAdminFlag(null);
-        e.setCreatedAt(null);
-        e.setUpdatedAt(null);
-        e.setDeleteFlag(null);
+        e.setId(ev.getId());
+        e.setCode(ev.getCode());
+        e.setName(ev.getName());
+        e.setPassword(ev.getPassword());
+        e.setAdminFlag(ev.getAdminFlag());
+        e.setCreatedAt(ev.getCreatedAt());
+        e.setUpdatedAt(ev.getUpdatedAt());
+        e.setDeleteFlag(ev.getDeleteFlag());
 
     }
 

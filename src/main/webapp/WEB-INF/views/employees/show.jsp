@@ -27,9 +27,9 @@
                 <tr>
                     <th>権限</th>
                     <td><c:choose>
-                        <c:when test="${employee.adminFlag == AttributeConst.ROLE_ADMIN.getIntegerValue()}">管理者</c:when>
-                        <c:otherwise>一般</c:otherwise>
-                    </c:choose></td>
+                            <c:when test="${employee.adminFlag == AttributeConst.ROLE_ADMIN.getIntegerValue()}">管理者</c:when>
+                            <c:otherwise>一般</c:otherwise>
+                        </c:choose></td>
                 </tr>
                 <tr>
                     <th>登録日時</th>

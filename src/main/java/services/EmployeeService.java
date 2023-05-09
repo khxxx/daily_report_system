@@ -138,13 +138,14 @@ public class EmployeeService extends ServiceBase{
      * @return バリデーションや更新処理中に発生したエラーのリスト
      */
 
-    public List<String> update(EmployeeView ev, String pepper){
+    public List<String> update(EmployeeView ev, String pepper) {
+
         //idを条件に登録済みの従業員情報を取得する
         EmployeeView savedEmp = findOne(ev.getId());
 
         boolean validateCode = false;
-        if(!savedEmp.getCode().equals(ev.getCode())) {
-
+        if (!savedEmp.getCode().equals(ev.getCode())) {
+            //社員番号を更新する場合
 
             //社員番号についてのバリデーションを行う
             validateCode = true;
@@ -154,18 +155,18 @@ public class EmployeeService extends ServiceBase{
 
         boolean validatePass = false;
         if (ev.getPassword() != null && !ev.getPassword().equals("")) {
+            //パスワードに入力がある場合
 
             //パスワードについてのバリデーションを行う
             validatePass = true;
 
             //変更後のパスワードをハッシュ化し設定する
-            savedEmp.setPassword(EncryptUtil.getPasswordEncrypt(ev.getPassword(), pepper));
+            savedEmp.setPassword(
+                    EncryptUtil.getPasswordEncrypt(ev.getPassword(), pepper));
         }
 
-
-        savedEmp.setName(ev.getName());
-        savedEmp.setAdminFlag(ev.getAdminFlag());
-
+        savedEmp.setName(ev.getName()); //変更後の氏名を設定する
+        savedEmp.setAdminFlag(ev.getAdminFlag()); //変更後の管理者フラグを設定する
 
         //更新日時に現在時刻を設定する
         LocalDateTime today = LocalDateTime.now();
@@ -182,6 +183,8 @@ public class EmployeeService extends ServiceBase{
         //エラーを返却（エラーがなければ0件の空リスト）
         return errors;
     }
+
+
 
 
     /*
