@@ -236,7 +236,7 @@ public class ReportAction extends ActionBase {
                 putRequestScope(AttributeConst.ERR, errors);
 
                 //編集画面を再表示
-                forward(ForwardConst.FW_ERR_UNKNOWN);
+                forward(ForwardConst.FW_REP_EDIT);
 
 
             } else {
