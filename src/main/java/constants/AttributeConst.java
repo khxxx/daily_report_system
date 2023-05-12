@@ -23,7 +23,7 @@ public enum AttributeConst {
     EMP_COUNT("employees_count"),
     EMP_ID("id"),
     EMP_CODE("code"),
-    EMP_PASS("passward"),
+    EMP_PASS("password"),
     EMP_NAME("name"),
     EMP_ADMIN_FLG("admin_flg"),
 
